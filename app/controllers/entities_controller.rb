@@ -1,6 +1,6 @@
 class EntitiesController < ApplicationController
   before_action :set_group, only: %i[show index new create destroy]
-  before_action :authenticate_user!
+  
 
   def index
     @entities = @group.entities.includes(:user).order(created_at: :desc).page(params[:page])
